@@ -1,0 +1,278 @@
+.gitignore file for react native project
+
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
+.pnp.*
+.yarn/*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# React Native
+.bundle/
+android/build/
+ios/build/
+ios/Pods/
+
+# Cache
+.cache
+.parcel-cache
+.nyc_output
+.grunt
+.stylelintcache
+.eslintcache
+.tsbuildinfo
+.svelte-kit/
+**/.vitepress/cache
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Other
+.vscode-test
+build/Release
+.pids
+*.pid
+*.seed
+*.pid.lock
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Next.js / Nuxt / Gatsby / Vite / Docusaurus outputs
+.next
+out
+.nuxt
+dist
+.cache/
+.vuepress/dist
+**/.vitepress/dist
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+.firebase/
+.tern-port
+
+# React Native specific files
+.android/
+.ios/
+
+
+Steps to follow for the same collaboration 
+
+Absolutely! Let me give you a **clear step-by-step summary** of everything you did, from creating the repo to collaborating and syncing between office and home. I’ll organize it so it’s easy to read next time.
+
+---
+
+## **Step 1: Initial Setup (Office)**
+
+1. You created a **new GitHub repository** on your personal account.
+
+   * While creating, you selected **“Node” in `.gitignore`**.
+   * Repo was empty initially.
+
+2. On your **local machine**, you had your **React Native projects**:
+
+   * `Awesome01/`
+   * `Styler02/`
+
+3. You created a **`.gitignore`** manually in the root `React_Native/` folder to exclude unwanted files (like `node_modules/`, `.bundle/`, logs, etc.).
+
+---
+
+## **Step 2: Git Configuration**
+
+1. Configured **global Git username & email** for your personal GitHub account:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_personal_email@example.com"
+```
+
+2. Initialized Git in the project root (if not already):
+
+```bash
+git init
+```
+
+3. Added the **remote** for your personal repo:
+
+```bash
+git remote add origin https://github.com/Amaanchaudhary/React-native.git
+```
+
+---
+
+## **Step 3: Adding Files & Committing**
+
+1. Added `.gitignore` first to stage it:
+
+```bash
+git add .gitignore
+git commit -m "Initial commit: add gitignore"
+```
+
+2. Added the **first project `Awesome01/`**:
+
+```bash
+git add Awesome01
+git commit -m "Add Awesome01 React Native app"
+```
+
+3. Added the **second project `Styler02/`**:
+
+```bash
+git add Styler02
+git commit -m "Add Styler02 React Native app"
+```
+
+4. **Checked commit history**:
+
+```bash
+git log --oneline
+```
+
+* You could see three commits: `.gitignore`, `Awesome01`, `Styler02`.
+
+---
+
+## **Step 4: Handling GitHub Authentication**
+
+1. Normally GitHub now requires **Personal Access Tokens (PAT)** for HTTPS authentication instead of passwords.
+
+2. You had already generated a **PAT via your office account** for work repos.
+
+   * But pushing to your personal GitHub account from the office machine worked because **your global config uses your personal GitHub account credentials**.
+   * Git cached authentication on your machine, so it didn’t prompt you for a token.
+
+---
+
+## **Step 5: Handling Remote Conflicts**
+
+1. When you tried pushing, Git rejected it:
+
+```
+Updates were rejected because the remote contains work that you do not have locally.
+```
+
+2. You pulled the remote branch using:
+
+```bash
+git pull origin main --allow-unrelated-histories
+```
+
+3. **Resolved merge conflicts** (mainly `.gitignore`) manually:
+
+   * Edited `.gitignore` to merge contents.
+   * Added it back and committed:
+
+```bash
+git add .gitignore
+git commit -m "Resolve gitignore merge conflict and merge rules"
+```
+
+4. Pushed everything finally:
+
+```bash
+git push -u origin main
+```
+
+✅ Now GitHub repo has both projects and merged `.gitignore`.
+
+---
+
+## **Step 6: Working From Home**
+
+1. **Clone the repo to home machine**:
+
+```bash
+git clone -b main https://github.com/Amaanchaudhary/React-native.git
+```
+
+2. Navigate into the project you want to work on:
+
+```bash
+cd Styler02
+npm install    # Install node_modules
+npm run android # Start the app
+```
+
+3. Make changes, then **commit and push**:
+
+```bash
+git add .
+git commit -m "Worked on Styler02"
+git push origin main
+```
+
+4. **For new projects**:
+
+   * Create the folder inside `React_Native/`, add code, commit, push.
+
+5. **No need to create branches or pull requests** if you’re working solo on main.
+
+---
+
+## **Step 7: Syncing Between Machines**
+
+Before starting work on any machine:
+
+```bash
+git pull origin main
+```
+
+* Ensures your local copy is up-to-date with GitHub.
+
+After finishing work:
+
+```bash
+git add .
+git commit -m "Your message"
+git push origin main
+```
+
+---
+
+## **Step 8: Cleaning Up Local Changes**
+
+* If Git shows a file as deleted or modified but you didn’t intend:
+
+  * Restore the file:
+
+```bash
+git restore <file>
+```
+
+* Or if you intentionally deleted it and want to push:
+
+```bash
+git add <file>
+git commit -m "Remove <file>"
+git push
+```
+
+---
+
+### ✅ **Key Points You Learned**
+
+1. `.gitignore` helps keep node_modules, builds, logs out of GitHub.
+2. Global Git config ensures commits are credited to the right user.
+3. GitHub now uses PAT for authentication with HTTPS.
+4. Merge conflicts can happen if remote repo has changes; resolve and commit.
+5. Pull first, then work → commit → push to avoid conflicts.
+6. Solo projects on main branch don’t require pull requests.
+7. Always check `git status` before starting work.
+
+
