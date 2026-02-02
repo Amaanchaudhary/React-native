@@ -9,7 +9,6 @@ const Cards = ({ card }: { card: any }) => {
                 source={{
                     uri: card?.image
                 }}
-                // src={'https://reactnative.dev/img/tiny_logo.png'} //Same
                 style={styles.cardImage}
             />
             <View style={styles.cardBody}>
