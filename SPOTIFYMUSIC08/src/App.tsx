@@ -4,7 +4,7 @@ import React from 'react'
 export default function App() {
   return (
     <View>
-      <Text>SPotify Clone 08</Text>
+      <Text>SPotify 08</Text>
     </View>
   )
 }
