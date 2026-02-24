@@ -18,6 +18,9 @@ export default function Home({ navigation }: HomeProps) {
                 onPress={() => navigation.push("Details", {    // Way 2
                     productId: "86"
                 })}
+            // onPress={() => navigation.replace("Details", {    // Way 3
+            //     productId: "86"
+            // })}
 
             />
         </View>
