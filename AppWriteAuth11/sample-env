@@ -1,0 +1,2 @@
+APPWRITE_ENDPOINT = "https://sample.com"
+APPWRITE_PROJECT_ID = "abc123456" 
