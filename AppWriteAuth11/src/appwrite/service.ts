@@ -34,11 +34,12 @@ class AppWriteService {
   //create a new record of user inside appwrite
   async createAccount({ email, password, name }: CreateUserAccount) {
     try {
-      const userAcc = await this.account.create(
-        ID.unique(),
+      const userAcc = await this.account.create({
+        userId : ID.unique(),
         email,
         password,
         name,
+      }
       );
       if (userAcc) {
         return this.login({ email, password });

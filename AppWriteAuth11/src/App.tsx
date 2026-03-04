@@ -1,15 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
-import Config from 'react-native-config';
+import React from 'react'
+import { Router } from './routes/Router';
+import { AppwriteProvider } from './appwrite/AppwriteContext';
 
 const App = () => {
   return (
-    <View>
-      <Text>App Write Auth</Text>
-    </View>
+    <AppwriteProvider>
+      <Router />
+    </AppwriteProvider>
   )
 }
 
 export default App
-
-const styles = StyleSheet.create({})
